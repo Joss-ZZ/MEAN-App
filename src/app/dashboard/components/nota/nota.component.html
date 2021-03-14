@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="card card-primary card-outline">
+      <div class="card-header"
+           style="display: flex; justify-content: center;">
+        <h3 class="card-title">
+          {{(this.data)?'Editar':'Agregar'}} Notas
+        </h3>
+      </div> <!-- /.card-body -->
+      <div class="card-body">
+
+        <div class="contenedor__formulario">
+
+
+            <form [formGroup]="miFormulario" (ngSubmit)="onSubmit()">
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Nota</mat-label>
+                <textarea matInput
+                          placeholder="Agregue una nota"
+                          formControlName = "descripcion">
+                </textarea>
+              </mat-form-field>
+            </p> 
+        
+        
+            <div class="contenedor__formulario-accion">
+                <button mat-raised-button color="warn"
+                        type="button"
+                        (click)="cerrarModal()">
+                    Cerrar
+                </button>
+                <button mat-raised-button color="primary" 
+                        type="submit"
+                        [disabled]="miFormulario.invalid">
+                    {{(this.data)?'Actualizar':'Agregar'}}
+                </button>
+            </div>
+            </form>
+        
+        
+        </div>
+
+
+      </div>
+    </div>
+</div>
+
+

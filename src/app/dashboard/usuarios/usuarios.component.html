@@ -1,0 +1,63 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+  <!-- Main content -->
+  <section class="content" style="margin-top: 5em;">
+    <div class="container-fluid">
+      <div class="card card-primary card-outline">
+        <div class="card-header"
+             style="display: flex; justify-content: center;">
+          <h3 class="card-title">Usuarios</h3>
+        </div> <!-- /.card-body -->
+        <div class="card-body">
+
+          <div class="spinner-container" *ngIf="usuarios.length===0; else divTable">
+            <ng-container>
+              <mat-spinner></mat-spinner>
+            </ng-container>
+          </div>
+          
+          <!-- Contenedor tabla responsive -->
+          <ng-template #divTable>
+          <div class="responsive_table">
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            
+              <ng-container matColumnDef="img">
+                <th mat-header-cell *matHeaderCellDef class="min-column"> Foto </th>
+                <td mat-cell *matCellDef="let element" class="min-column"> 
+                  <img  class="img-thumbnail" width="50" height="50"
+                        [src]="element | imagenes" 
+                        [alt]="element.nombre">  
+                </td>
+              </ng-container>
+  
+              
+              <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef class="min-column"> Nombre </th>
+                <td mat-cell *matCellDef="let element" class="min-column"> {{element.nombre}} </td>
+              </ng-container>
+            
+              
+              <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef class="min-column"> Email </th>
+                <td mat-cell *matCellDef="let element" class="min-column"> {{element.email}} </td>
+              </ng-container>
+            
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+          </div>
+          </ng-template>
+          <!-- FIN Contenedor tabla responsive -->
+
+        </div><!-- /.card-body -->
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->

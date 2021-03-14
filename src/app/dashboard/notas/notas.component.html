@@ -1,0 +1,90 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+  <!-- Main content -->
+  <section class="content" style="margin-top: 5em;">
+    <div class="container-fluid">
+      <div class="card card-primary card-outline">
+        <div class="card-header"
+             style="display: flex; justify-content: center;">
+          <h3 class="card-title">Notas</h3>
+        </div> <!-- /.card-body -->
+        <div class="card-body">
+
+          <div class="spinner-container" *ngIf="notas.length===0; else divTable">
+            <ng-container>
+              <mat-spinner></mat-spinner>
+            </ng-container>
+          </div>
+          
+          
+          <!-- Contenedor tabla responsive -->
+          
+          <ng-template #divTable>
+
+          <div class="contenedor-add-search">
+            <button mat-raised-button (click)="agregarNota()">
+              <mat-icon>add</mat-icon>Nueva Nota
+            </button>
+            <mat-form-field>
+              <mat-label>Buscar</mat-label>
+              <input matInput (keyup)="aplicarFiltro($event)" placeholder="Ingrese lo que desea buscar" #input>
+            </mat-form-field>
+          </div>
+
+          <div class="responsive_table">
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                      
+              <ng-container matColumnDef="usuario">
+                <th mat-header-cell *matHeaderCellDef class="min-column"> Usuario </th>
+                <td mat-cell *matCellDef="let element" class="min-column">
+                  <div class="user__container">
+                    <img  class="img-thumbnail" width="50" height="50"
+                    [src]="element.usuario | imagenes" 
+                    [alt]="element.usuario.nombre">
+                    <div class="user-info">
+                      <p>{{element.usuario.nombre}}</p>
+                      <small>Usuario</small>
+                    </div> 
+                  </div>
+                </td>
+              </ng-container>
+            
+              
+              <ng-container matColumnDef="descripcion">
+                <th mat-header-cell *matHeaderCellDef class="min-column"> Nota </th>
+                <td mat-cell *matCellDef="let element" class="min-column"> {{element.descripcion}} </td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="accion">
+                <th mat-header-cell *matHeaderCellDef class="min-column"> Acción </th>
+                <td mat-cell *matCellDef="let element, let i = index" class="min-column"> 
+                  <button mat-icon-button (click)="Editar(element, i)" class="btn-edit"><mat-icon>launch</mat-icon></button>
+                  <button mat-icon-button color="warn" (click)="Eliminar(element)"><mat-icon>delete_outline</mat-icon></button>
+                </td>
+              </ng-container>
+            
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            
+
+          </div>
+          
+          </ng-template>
+          <!-- FIN Contenedor tabla responsive -->
+
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        
+        </div><!-- /.card-body -->
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->

@@ -1,0 +1,25 @@
+.card-title{
+    font-weight: 700 !important;
+}
+
+.contenedor__formulario, mat-form-field{
+    width: 100%;
+}
+
+.contenedor__formulario-accion{
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 7.5px 0;
+}
+
+.mat-dialog-container {
+    padding: 0px !important;
+}
+
+.mat-flat-button.mat-warn, .mat-raised-button.mat-warn, .mat-fab.mat-warn, .mat-mini-fab.mat-warn {
+    margin-right: 1em;
+}

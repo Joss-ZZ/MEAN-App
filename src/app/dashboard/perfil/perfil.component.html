@@ -1,0 +1,81 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+  <!-- Main content -->
+  <section class="content" style="margin-top: 5em;">
+    <div class="container-fluid">
+      <div class="card card-primary card-outline">
+        <div class="card-header"
+             style="display: flex; justify-content: center;">
+          <h3 class="card-title">Ajustes del Perfil</h3>
+        </div> <!-- /.card-body -->
+        <div class="card-body">
+          
+
+
+          <div class="contenedor mt-5">
+
+            <div class="contenedor__formulario">
+
+
+                <form [formGroup]="miFormulario" (ngSubmit)="actualizar()">
+                <p>
+                    <mat-form-field appearance="outline">
+                      <mat-label>Nombre</mat-label>
+                      <mat-icon matSuffix>perm_identity</mat-icon>
+                      <input matInput
+                             formControlName = "nombre"
+                             >
+                    </mat-form-field>
+                </p>    
+
+                <p>
+                  <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <mat-icon matSuffix>perm_identity</mat-icon>
+                    <input matInput
+                            type="email"
+                            formControlName = "email">
+                  </mat-form-field>
+                </p> 
+
+                <div class="input-group mb-3">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" 
+                           id="inputGroupFile02"
+                           formControlName="archivo"
+                           (change)="cambiarImagen($event.target.files[0])">
+                    <label class="custom-file-label" for="inputGroupFile02">Elegir nueva foto de perfil</label>
+                  </div>
+                </div>
+        
+                <div class="contenedor__formulario-accion">
+                    <button mat-raised-button color="primary" 
+                            type="submit"
+                            [disabled]="miFormulario.invalid">
+                        Actualizar
+                    </button>
+                </div>
+                </form>
+
+        
+            </div>
+                
+            <img  *ngIf="!imagenTemp"
+                  [src]=" usuario | imagenes ">
+            <img  *ngIf="imagenTemp"
+                  [src]="imagenTemp">
+        
+        </div>
+
+
+
+
+        </div><!-- /.card-body -->
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+
+</div>
+<!-- /.content-wrapper -->

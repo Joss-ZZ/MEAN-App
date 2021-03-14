@@ -1,0 +1,86 @@
+.card-title{
+  font-weight: 700 !important;
+}
+
+table {
+    width: 100%;
+}
+
+.img-thumbnail{
+  border-radius: 50%;
+}
+
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+  padding: 10px 0 10px 24px;
+}
+
+@media(max-width: 800px) {
+  .responsive_table {
+      overflow-x: auto !important;
+  }
+
+  .mat-table {
+      min-width:800px;
+  }
+}
+
+.spinner-container{
+  display: flex;
+  justify-content: center;
+}
+
+.user__container{
+  display: flex;
+}
+
+img{
+  margin-right: 1em;
+}
+
+.user-info p{
+  margin-bottom: 0 !important;
+}
+
+.user-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn-edit{
+  color: #007bff;
+}
+
+.mat-raised-button:not([class*=mat-elevation-z]){
+  margin-bottom: 1em;
+}
+
+/* Contenedor para el boton agregar y barra de busqueda */
+.contenedor-add-search{
+  display: flex;
+  justify-content: space-between;
+}
+
+.contenedor-add-search button{
+  flex: 0 1 calc(20% - 1em);
+}
+
+.contenedor-add-search mat-form-field{
+  flex: 0 1 calc(80% - 1em);
+}
+
+@media screen and (max-width: 1200px) {
+  .contenedor-add-search button{
+    flex: 0 1 calc(30% - 1em);
+  }
+  
+  .contenedor-add-search mat-form-field{
+    flex: 0 1 calc(70% - 1em);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contenedor-add-search{
+    flex-direction: column;
+  }
+}

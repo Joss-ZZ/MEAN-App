@@ -1,0 +1,30 @@
+.card-title{
+  font-weight: 700 !important;
+}
+
+table {
+    width: 100%;
+}
+
+.img-thumbnail{
+  border-radius: 50%;
+}
+
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+  padding: 10px 0 10px 24px;
+}
+
+@media(max-width: 800px) {
+  .responsive_table {
+      overflow-x: auto !important;
+  }
+
+  .mat-table {
+      min-width:800px;
+  }
+}
+
+.spinner-container{
+  display: flex;
+  justify-content: center;
+}
