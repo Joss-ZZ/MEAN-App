@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://mi-pagina.com/api'
+  baseUrl: 'https://mean-app-jz.herokuapp.com/api'
 };

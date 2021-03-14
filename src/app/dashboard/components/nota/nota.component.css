@@ -16,10 +16,6 @@
     margin: 7.5px 0;
 }
 
-.mat-dialog-container {
-    padding: 0px !important;
-}
-
 .mat-flat-button.mat-warn, .mat-raised-button.mat-warn, .mat-fab.mat-warn, .mat-mini-fab.mat-warn {
     margin-right: 1em;
 }

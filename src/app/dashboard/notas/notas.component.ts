@@ -25,7 +25,7 @@ export class NotasComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  notas: Nota[] = [];
+  notas: Nota[];
 
   displayedColumns: string[] = ['usuario', 'descripcion', 'accion'];
   dataSource: MatTableDataSource<any>;

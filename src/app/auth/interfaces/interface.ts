@@ -4,7 +4,7 @@ export interface AuthResponse{
     nombre?: string,
     email?: string,
     password?: string,
-    img?: string,
+    img_url?: string,
     token?: string,
     msg?: string,
     usuariosDB?: Usuario[],
@@ -17,7 +17,7 @@ export interface Usuario{
     nombre: string,
     email: string,
     password?: string,
-    img?: string,
+    img_url?: string,
     token?: string,
 }
 

@@ -71,7 +71,7 @@ export class AuthService {
                     uid: resp.uid,
                     nombre: resp.nombre,
                     email: resp.email,
-                    img: resp.img                                   
+                    img_url: resp.img_url                                  
                   }
                 }),
                 map(resp => resp.ok),
@@ -106,10 +106,12 @@ export class AuthService {
                     uid: resp.uid,
                     nombre: resp.nombre,
                     email: resp.email,
-                    img: resp.img
+                    img_url: resp.img_url
                   }
                 }
-              })
+              }),
+              map(resp => resp.ok),
+              catchError( err => of(err.error.msg))
             )
   }
 

@@ -1,12 +1,11 @@
-import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Nota } from '../../../auth/interfaces/interface';
 
 @Component({
   selector: 'app-eliminar',
   templateUrl: './eliminar.component.html',
-  styleUrls: ['./eliminar.component.css'],
-  encapsulation: ViewEncapsulation.None 
+  styleUrls: ['./eliminar.component.css']
 })
 export class EliminarComponent implements OnInit {
 

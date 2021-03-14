@@ -14,13 +14,15 @@ import { UtilidadesService } from '../../shared/services/utilidades.service';
 })
 export class PerfilComponent implements OnInit {
 
+  actualizando: boolean = false;
+
   imagenTemp!: any;
   imagenSubir!: File;
 
   miFormulario: FormGroup = this.fb.group({
     nombre: [this.usuario.nombre, [Validators.required, Validators.pattern(this.validatorService.nombrePattern)]],
     email: [this.usuario.email, [Validators.required, Validators.pattern(this.validatorService.correoPattern)]],
-    archivo: ['', [Validators.required]]
+    archivo: ['']
   })
 
   constructor(private authService: AuthService,
@@ -41,11 +43,15 @@ export class PerfilComponent implements OnInit {
     const {nombre, email} = this.miFormulario.value;
     
     if(this.miFormulario.valid){
+      this.actualizando = true;
       this.authService.actualizarUsuario( nombre, email, this.imagenSubir)
-      .subscribe( resp => {
-        if(resp.ok){
+      .subscribe( ok => {
+        if(ok === true){
           this.utilidadesService.openSnackBar("Actualizado correctamente!");
           this.router.navigateByUrl('/dashboard/principal');
+        }else{
+          this.actualizando = false;
+          Swal.fire('Error', ok , 'error');
         }
       });
     }else{
@@ -55,7 +61,6 @@ export class PerfilComponent implements OnInit {
   }
 
   cambiarImagen(file: File){
-    console.log(file);
     this.imagenSubir = file;
 
     if(!file){
@@ -70,8 +75,8 @@ export class PerfilComponent implements OnInit {
         this.imagenTemp = reader.result;
       }
     }else{
+      this.imagenSubir = null;
       Swal.fire('Error', 'Solo puede subir imágenes', 'error');
-      this.miFormulario.get('archivo').setValue('');
     }
 
   }

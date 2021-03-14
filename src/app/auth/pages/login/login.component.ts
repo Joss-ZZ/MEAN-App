@@ -16,7 +16,7 @@ import { UtilidadesService } from '../../../shared/services/utilidades.service';
 export class LoginComponent {
 
   miFormulario: FormGroup = this.fb.group({
-    email: ['test1@gmail.com',[Validators.required, Validators.pattern(this.validatorService.correoPattern)]],
+    email: ['naruto@gmail.com',[Validators.required, Validators.pattern(this.validatorService.correoPattern)]],
     password: ['123456', [Validators.required, Validators.minLength(6)]]
   })
 

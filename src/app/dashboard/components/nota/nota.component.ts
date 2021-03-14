@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Nota } from '../../../auth/interfaces/interface';
@@ -6,8 +6,7 @@ import { Nota } from '../../../auth/interfaces/interface';
 @Component({
   selector: 'app-nota',
   templateUrl: './nota.component.html',
-  styleUrls: ['./nota.component.css'],
-  encapsulation: ViewEncapsulation.None 
+  styleUrls: ['./nota.component.css']
 })
 export class NotaComponent implements OnInit {
 

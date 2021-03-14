@@ -1,7 +1,9 @@
-.mat-dialog-container {
-    padding: 24px !important;
-}
 
 p span{
     color:blue;
+}
+
+.accion{
+    display: flex;
+    justify-content: space-around;
 }
